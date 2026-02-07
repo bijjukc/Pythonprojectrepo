@@ -73,27 +73,82 @@
 
 #  Create a Car class
 
-class Car:
-    def __init__(self, make,model, fuel):
-        self.make = make
-        self.model = model
-        self.fuel = fuel
+# class Car:
+#     def __init__(self, make,model, fuel):
+#         self.make = make
+#         self.model = model
+#         self.fuel = fuel
         
-    def drive(self, distance):
+#     def drive(self, distance):
         
-        fuel_needed = distance * 0.2
-        if self.fuel >= fuel_needed:
-            self.fuel -= fuel_needed
-            print(f"you drive {distance} km. Fuel left {self.fuel}")
-        else:
-            print("Not enough fuel to drive")
+#         fuel_needed = distance * 0.2
+#         if self.fuel >= fuel_needed:
+#             self.fuel -= fuel_needed
+#             print(f"you drive {distance} km. Fuel left {self.fuel}")
+#         else:
+#             print("Not enough fuel to drive")
       
         
         
-    def refuel(self, amount):
-        self.fuel += amount
-        print(f"car refueled by {amount}. Total fuel: {self.fuel}")
+#     def refuel(self, amount):
+#         self.fuel += amount
+#         print(f"car refueled by {amount}. Total fuel: {self.fuel}")
         
-my_car = Car("Ford", "Mustang", 10)
-my_car.drive(8)
-my_car.refuel(5)
+# my_car = Car("Ford", "Mustang", 10)
+# my_car.drive(8)
+# my_car.refuel(5)
+
+
+#  Create a ToDoList class
+# class to_Do_List:
+#     def __init__(self,title, status):
+#         self.title = title
+#         self.status = status
+        
+#     def addtask(self):
+#         date = int(input("please enter a date : "))
+#         task = input("please enter your task for taoday: ")
+#         self.title += task
+#         return self.title
+        
+#     def removetask(self):
+#         remove_task = input("Please enter a task that you wnat remove from your todolist: ")
+#         self.title -= remove_task
+#         return self.title
+    
+# my_todolist = to_Do_List("study", "check")
+# print(my_todolist.addtask())
+# print(my_todolist.removetask())
+
+
+
+class ToDoList:
+    def __init__(self):
+        self.tasks = []   # list to store tasks
+
+    def addtask(self):
+        task = input("Enter a task: ")
+        self.tasks.append(task)
+        print("Task added!")
+
+    def removetask(self):
+        task = input("Enter task to remove: ")
+        if task in self.tasks:
+            self.tasks.remove(task)
+            print("Task removed!")
+        else:
+            print("Task not found!")
+
+    def showtasks(self):
+        print("Your To-Do List:")
+        for task in self.tasks:
+            print("-", task)
+
+
+my_todolist = ToDoList()
+
+my_todolist.addtask()
+my_todolist.addtask()
+my_todolist.showtasks()
+my_todolist.removetask()
+my_todolist.showtasks()
