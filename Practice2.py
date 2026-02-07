@@ -1,6 +1,6 @@
 
-# functions
-# check the nums  is prime 
+# # functions
+# # check the nums  is prime 
 
 
 # def is_prime_num(num):
@@ -30,7 +30,7 @@
 
 
 
-# Write a funciton to find a factorail of a num
+# # Write a funciton to find a factorail of a num
 
 # def fact_num(num):
 #     result = 1
@@ -42,17 +42,58 @@
 
 
 
-# Classes and Objects
+ # Classes and Objects
 
-class Student:
-    def __init__(self, name, roll_no, marks):
-        self.name = name 
-        self.roll_no = roll_no
-        self.marks = marks
+# class Student:
+#     def __init__(self, name, roll_no, marks):
+#         self.name = name 
+#         self.roll_no = roll_no
+#         self.marks = marks
         
-    def display(self):
-        print("My name is" , self.name , " and  the studnet roll no is " , self.roll_no , "and got makrs :" , self.marks)
+#     def display(self):
+#         print("My name is" , self.name , " and  the studnet roll no is " , self.roll_no , "and got makrs :" , self.marks)
     
-info = Student("Biaya", 1, 98)
-info.display()
+# info = Student("Biaya", 1, 98)
+# info.display()
    
+   
+   
+
+# Wriet a function to find Greatest Common Divisor (GCD) of two numbers
+
+# def GCD(num1, num2):
+#    gcd = 1 
+#    for i in range(1, min(num1, num2)+1):
+#        if num1 % i == 0 and num2 % i == 0:
+#            gcd = i
+#    return gcd
+        
+# print(GCD(200, 50))
+
+
+#  Create a Car class
+
+class Car:
+    def __init__(self, make,model, fuel):
+        self.make = make
+        self.model = model
+        self.fuel = fuel
+        
+    def drive(self, distance):
+        
+        fuel_needed = distance * 0.2
+        if self.fuel >= fuel_needed:
+            self.fuel -= fuel_needed
+            print(f"you drive {distance} km. Fuel left {self.fuel}")
+        else:
+            print("Not enough fuel to drive")
+      
+        
+        
+    def refuel(self, amount):
+        self.fuel += amount
+        print(f"car refueled by {amount}. Total fuel: {self.fuel}")
+        
+my_car = Car("Ford", "Mustang", 10)
+my_car.drive(8)
+my_car.refuel(5)
