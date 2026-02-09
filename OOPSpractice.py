@@ -82,69 +82,114 @@
 # Create a StudnetReport class to calcu;ate grade and percentage 
 
 # class StudentReport:
-#     def __init__(self, name, roll_no,marks):
-#         self.name = name 
+#     def __init__(self, name, roll_no, marks):
+#         self.name = name
 #         self.roll_no = roll_no
-#         self.marks = marks
-     
+#         self.marks = marks  # list of marks
+
+#     def calculate_percentage(self):
+#         total_marks = sum(self.marks)
+#         number_of_subjects = len(self.marks)
+#         percentage = total_marks / number_of_subjects
+#         return percentage
+
+#     def calculate_grade(self):
+#         percentage = self.calculate_percentage()
+
+#         if percentage >= 85:
+#             return "A"
+#         elif percentage >= 75:
+#             return "B"
+#         elif percentage >= 60:
+#             return "C"
+#         else:
+#             return "Fail"
+
+#     def print_report(self):
+#         percentage = self.calculate_percentage()
+#         grade = self.calculate_grade()
+
+#         print(f"Student Name: {self.name}")
+#         print(f"Roll Number: {self.roll_no}")
+#         print(f"Percentage: {percentage:.2f}%")
+#         print(f"Grade: {grade}")
+
+
+# student = StudentReport("Bijaya", 2, [90, 80, 85, 75, 86])
+# student.print_report()
+
+
+# Create a ShoppingCart class to add, remove and calculate total price
+# class ShoppingCart:
+#     def __init__ (self):
+#         self.items = {} # item_name : price
+        
+#     def addItems(self, name , price):
+#         self.items[name] = price
+#         print(f" {name} added to cart")
+        
+         
+        
+#     def removeItems(self, name):
+#         if name in self.items:
+#             del self.items[name]
+#             print(f" {name} removed from cart")
+#         else:
+#             print("Sorry ,item not found in cart")
+            
+#     def total_price(self):
+#         total = 0
+#         for price in self.items.values():
+#             total += price
+#         return total
+                
+
+
+# cart = ShoppingCart()
+# cart.addItems(["Noddles", "Apple", "Rice"], [20,100,90])
+# # cart.addItems("Apple", 20)
+# # cart.addItems("Rice", 100)
+# cart.removeItems("Noodles")
+# print(cart.total_price())
+
+
+# Create a MovieTicket class to book and cancel tickets
+
+class MovieTicket:
+    def __init__(self,show,price,time):
+        self.show = show
+        self.price = price
+        self.time = time
+        self.tickets = 0
+        self.is_booked = False
     
-    
-#     def calculate_grade(self,subjects):
-#         subjects += self.marks
-        
-#         return subjects
-#     #    sub_marks = subjects.append(self.marks)
-    
-    
-        
-
-#         # if self.marks <= 100 or self.marks >=85:
-#         #     print("Grade : A")
-#         # elif self.marks < 85 or self.marks >= 75:
-#         #     print()
-        
-#     # def percentage (self):
-#     #     total_percentage = 
-        
-        
-# student = StudentReport("Bijaya", 2, [90,80,85,75,86])
-# print(student.calculate_grade( ["physics ", "biology", "chemistry", "Math", "English" ]))
-
-
-
-class StudentReport:
-    def __init__(self, name, roll_no, marks):
-        self.name = name
-        self.roll_no = roll_no
-        self.marks = marks  # list of marks
-
-    def calculate_percentage(self):
-        total_marks = sum(self.marks)
-        number_of_subjects = len(self.marks)
-        percentage = total_marks / number_of_subjects
-        return percentage
-
-    def calculate_grade(self):
-        percentage = self.calculate_percentage()
-
-        if percentage >= 85:
-            return "A"
-        elif percentage >= 75:
-            return "B"
-        elif percentage >= 60:
-            return "C"
+    def book_show(self, number):
+        if self.show == "3 idiots" and self.time == "3 PM":
+            self.tickets += number
+            self.is_booked = True
+            print(f"{number} tickets booked successfully")
         else:
-            return "Fail"
+            print("Show is not availaible today")
+    
+    def total_price(self):
+        if self.is_booked:
+            return self.tickets * self.price
+        else:
+         return 0
+     
+    def cancel_ticket(self):
+        if self.is_booked:
+            self.tickets = 0
+            self.is_booked = False
+        
+            print("Tickets cancelled successfully")
+        else:
+            print("No tickets booked to cnacel")
+        
 
-    def print_report(self):
-        percentage = self.calculate_percentage()
-        grade = self.calculate_grade()
 
-        print(f"Student Name: {self.name}")
-        print(f"Roll Number: {self.roll_no}")
-        print(f"Percentage: {percentage:.2f}%")
-        print(f"Grade: {grade}")
+movie = MovieTicket("3 idiots" ,100,  "3 PM")
+movie.book_show(3)
+print(movie.total_price())
+movie.cancel_ticket()
 
-
-student = StudentReport("Bijaya", 2, [90, 80, 85, 75, 86])
-student.print_report()
